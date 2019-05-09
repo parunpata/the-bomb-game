@@ -1,5 +1,6 @@
 ﻿using System;
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
@@ -23,7 +24,38 @@ namespace TheBombGame
             SetSupportActionBar(toolbar);
 
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            fab.Click += FabOnClick;
+            fab.Click += (sender, e) =>
+            {
+                View view = (View)sender;
+                Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
+                    .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
+            };
+
+            var playerCount = 1;
+            RadioButton radioButtonOnePlayer = FindViewById<RadioButton>(Resource.Id.radioButtonOnePlayer);
+            RadioButton radioButtonTwoPlayer = FindViewById<RadioButton>(Resource.Id.radioButtonTwoPlayer);
+            RadioButton radioButtonThreePlayer = FindViewById<RadioButton>(Resource.Id.radioButtonThreePlayer);
+            RadioButton radioButtonFourPlayer = FindViewById<RadioButton>(Resource.Id.radioButtonFourPlayer);
+            radioButtonOnePlayer.Click += (sender, e) => playerCount = Convert.ToInt16(radioButtonOnePlayer.Text);
+            radioButtonTwoPlayer.Click += (sender, e) => playerCount = Convert.ToInt16(radioButtonTwoPlayer.Text);
+            radioButtonThreePlayer.Click += (sender, e) => playerCount = Convert.ToInt16(radioButtonThreePlayer.Text);
+            radioButtonFourPlayer.Click += (sender, e) => playerCount = Convert.ToInt16(radioButtonFourPlayer.Text);
+
+            NumberPicker np = FindViewById<NumberPicker>(Resource.Id.numberPickerFieldCount);
+            np.MinValue = 2;
+            np.MaxValue = 32;
+
+            var fieldCount = 9;
+            np.ValueChanged += (sender, e) => fieldCount = e.NewVal;
+
+            Button buttonStart = FindViewById<Button>(Resource.Id.buttonStart);
+            buttonStart.Click += (sender, e) =>
+            {
+                var activity = new Intent(this, typeof(GameBoardActivity));
+                activity.PutExtra("playerCount", playerCount);
+                activity.PutExtra("fieldCount", fieldCount);
+                StartActivity(activity);
+            };
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -43,12 +75,6 @@ namespace TheBombGame
             return base.OnOptionsItemSelected(item);
         }
 
-        private void FabOnClick(object sender, EventArgs eventArgs)
-        {
-            View view = (View) sender;
-            Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
-                .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
-        }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

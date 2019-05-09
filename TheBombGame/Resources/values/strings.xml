@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">The Bomb Game</string>
     <string name="action_settings">Settings</string>
+
+    <string name="player_count">Player Count</string>
+    <string name="field_count">Field Count</string>
 </resources>
+ 
