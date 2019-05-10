@@ -24,48 +24,9 @@ namespace TheBombGame
             int playerCount = Intent.GetIntExtra("playerCount", 1);
             int fieldCount = Intent.GetIntExtra("fieldCount", 9);
 
-            //GridLayout gridLayoutGameBoard = FindViewById<GridLayout>(Resource.Id.gridLay outGameBoard);
-            //gridLayoutGameBoard.ColumnCount = 4;
-
             GridView gridView = FindViewById<GridView>(Resource.Id.gridViewGameBoard);
+            gridView.Adapter = new ImageAdapter(this, fieldCount);
             
-
-            List<ImageView> imageList = new List<ImageView>();
-            ImageView imageView;
-
-            for (int i = 0; i < fieldCount; i++)
-            {
-                imageView = new ImageView(this);
-                imageView.SetImageResource(Resource.Drawable.square);
-
-                imageView.LayoutParameters = new ViewGroup.LayoutParams(250, 250);
-                imageView.SetPadding(10, 10, 10, 10);
-                imageList.Add(imageView);
-            }
-            
-            //foreach(var i in imageList)
-            //{
-            //    gridLayoutGameBoard.AddView(i);
-            //}
- 
-
-            //List<Button> buttonList = new List<Button>(fieldCount);
-            //foreach(var button in buttonList)
-            //{
-            //    button.Text = "Hallo";
-            //}
-            //Button[] buttons = new Button[fieldCount];
-            ////ArrayAdapter adapter = new ArrayAdapter(this, Resource.Layout., buttons);
-
-            //foreach (var button in buttons)
-            //{
-            //    button.Text = "Hallo";
-            //    //gridViewGameBoard.AddView(button);
-            //}
-
-            //gridViewGameBoard.Adapter = adapter;
-
-
         }
     }
 }
