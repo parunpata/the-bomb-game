@@ -59,6 +59,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Field.cs" />
     <Compile Include="GameBoardActivity.cs" />
     <Compile Include="ImageAdapter.cs" />
     <Compile Include="MainActivity.cs" />
@@ -108,7 +109,7 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\game_board.axml">
+    <AndroidResource Include="Resources\layout\activity_game_board.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

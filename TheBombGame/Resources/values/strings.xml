@@ -4,5 +4,6 @@
 
     <string name="player_count">Player Count</string>
     <string name="field_count">Field Count</string>
+    <string name="bomb_count">Bomb Count</string>
 </resources>
  

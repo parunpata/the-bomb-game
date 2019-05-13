@@ -19,13 +19,14 @@ namespace TheBombGame
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            SetContentView(Resource.Layout.game_board);
+            SetContentView(Resource.Layout.activity_game_board);
 
             int playerCount = Intent.GetIntExtra("playerCount", 1);
             int fieldCount = Intent.GetIntExtra("fieldCount", 9);
+            int bombCount = Intent.GetIntExtra("bombCount", 1);
 
             GridView gridView = FindViewById<GridView>(Resource.Id.gridViewGameBoard);
-            gridView.Adapter = new ImageAdapter(this, fieldCount);
+            gridView.Adapter = new ImageAdapter(this, fieldCount, bombCount);
             
         }
     }

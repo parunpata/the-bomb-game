@@ -40,13 +40,18 @@ namespace TheBombGame
             radioButtonTwoPlayer.Click += (sender, e) => playerCount = Convert.ToInt16(radioButtonTwoPlayer.Text);
             radioButtonThreePlayer.Click += (sender, e) => playerCount = Convert.ToInt16(radioButtonThreePlayer.Text);
             radioButtonFourPlayer.Click += (sender, e) => playerCount = Convert.ToInt16(radioButtonFourPlayer.Text);
+     
+            NumberPicker npFieldCount = FindViewById<NumberPicker>(Resource.Id.numberPickerFieldCount);
+            npFieldCount.MinValue = 2;
+            npFieldCount.MaxValue = 32;
+            int fieldCount = npFieldCount.Value;
+            npFieldCount.ValueChanged += (sender, e) => fieldCount = e.NewVal;
 
-            NumberPicker np = FindViewById<NumberPicker>(Resource.Id.numberPickerFieldCount);
-            np.MinValue = 2;
-            np.MaxValue = 32;
-
-            var fieldCount = 9;
-            np.ValueChanged += (sender, e) => fieldCount = e.NewVal;
+            NumberPicker npBombCount = FindViewById<NumberPicker>(Resource.Id.numberPickerBombCount);
+            npBombCount.MinValue = 1;
+            npBombCount.MaxValue = npFieldCount.MaxValue - 1;
+            int bombCount = npBombCount.Value;
+            npBombCount.ValueChanged += (sender, e) => bombCount = e.NewVal;
 
             Button buttonStart = FindViewById<Button>(Resource.Id.buttonStart);
             buttonStart.Click += (sender, e) =>
@@ -54,6 +59,7 @@ namespace TheBombGame
                 var activity = new Intent(this, typeof(GameBoardActivity));
                 activity.PutExtra("playerCount", playerCount);
                 activity.PutExtra("fieldCount", fieldCount);
+                activity.PutExtra("bombCount", bombCount);
                 StartActivity(activity);
             };
         }

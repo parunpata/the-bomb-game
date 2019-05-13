@@ -40,7 +40,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:id="@+id/radioButtonTwoPlayer"
-                    android:text="2"/>
+                    android:text="2"
+                    android:checked="true"/>
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -75,6 +76,24 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:id="@+id/numberPickerFieldCount"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bomb_count"/>
+
+            <NumberPicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/numberPickerBombCount"/>
 
         </LinearLayout>
 
