@@ -7,6 +7,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Widget;
 
@@ -25,8 +26,35 @@ namespace TheBombGame
             int fieldCount = Intent.GetIntExtra("fieldCount", 9);
             int bombCount = Intent.GetIntExtra("bombCount", 1);
 
+            TextView textViewTotalNumberOfFields = FindViewById<TextView>(Resource.Id.textViewTotalNumberOfFields);
+            TextView textViewCurrentNumberOfFields = FindViewById<TextView>(Resource.Id.textViewCurrentNumberOfFields);
+            TextView textViewTotalNumberOfBombs = FindViewById<TextView>(Resource.Id.textViewTotalNumberOfBombs);
+            TextView textViewCurrentNumberOfBombs = FindViewById<TextView>(Resource.Id.textViewCurrentNumberOfBombs);
+
+            textViewTotalNumberOfFields.Text = fieldCount.ToString();
+            textViewCurrentNumberOfFields.Text = fieldCount.ToString();
+            textViewTotalNumberOfBombs.Text = bombCount.ToString();
+            textViewCurrentNumberOfBombs.Text = bombCount.ToString();
+
             GridView gridView = FindViewById<GridView>(Resource.Id.gridViewGameBoard);
             gridView.Adapter = new ImageAdapter(this, fieldCount, bombCount);
+
+            gridView.ItemClick += (sender, e) =>
+            {
+                ImageView image = (ImageView)e.View;
+
+                if ((bool)image.Tag == true)
+                {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                    alert.SetTitle("Lost");
+                    alert.SetMessage("You Lost");
+
+                    Dialog dialog = alert.Create();
+                    dialog.Show();
+                }
+                image.SetImageResource(Resource.Drawable.square);
+                image.SetBackgroundColor(new Android.Graphics.Color(0, 255, 0));
+            };
             
         }
     }

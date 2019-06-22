@@ -68,7 +68,6 @@ namespace TheBombGame
 
         public override long GetItemId(int position)
         {
-            var field = gameFields[position];
             return 0;
         }
 
@@ -82,6 +81,7 @@ namespace TheBombGame
                 imageView.LayoutParameters = new GridView.LayoutParams(250, 250);
                 imageView.SetScaleType(ImageView.ScaleType.CenterCrop);
                 imageView.SetPadding(15, 15, 15, 15);
+                
             }
             else
             {
@@ -91,7 +91,7 @@ namespace TheBombGame
             if(gameFields[position].IsBomb == true)
             {
                 imageView.SetBackgroundColor(new Android.Graphics.Color(255, 0, 0));
-                //imageView.SetPadding(20, 20, 20, 20);
+                imageView.Tag = true;
             }
             imageView.SetImageResource(gameFields[position].ResourceId);
             return imageView;
