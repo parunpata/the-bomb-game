@@ -12,10 +12,11 @@ using Android.Widget;
 
 namespace TheBombGame
 {
-    public class Field
+    public class Player
     {
-        public int FieldId { get; set; }
-        public int ResourceId { get; set; }
-        public bool IsBomb { get; set; }
+        public int PlayerId { get; set; }
+
+        public string PlayerName { get; set; }
+        public bool Turn { get; set; }
     }
 }

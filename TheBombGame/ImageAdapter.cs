@@ -25,7 +25,7 @@ namespace TheBombGame
             {
                 var field = new Field
                 {
-                    Id = i,
+                    FieldId = i,
                     ResourceId = Resource.Drawable.square,
                     IsBomb = false
                 };
@@ -49,7 +49,7 @@ namespace TheBombGame
 
             foreach (var field in gameFields)
             {
-                if (bombPositions.Contains(field.Id))
+                if (bombPositions.Contains(field.FieldId))
                 {
                     field.IsBomb = true;
                 }

@@ -30,6 +30,7 @@ namespace TheBombGame
             TextView textViewCurrentNumberOfFields = FindViewById<TextView>(Resource.Id.textViewCurrentNumberOfFields);
             TextView textViewTotalNumberOfBombs = FindViewById<TextView>(Resource.Id.textViewTotalNumberOfBombs);
             TextView textViewCurrentNumberOfBombs = FindViewById<TextView>(Resource.Id.textViewCurrentNumberOfBombs);
+            TextView textViewCurrentPlayer = FindViewById<TextView>(Resource.Id.textViewCurrentPlayer);
 
             textViewTotalNumberOfFields.Text = fieldCount.ToString();
             textViewCurrentNumberOfFields.Text = fieldCount.ToString();
