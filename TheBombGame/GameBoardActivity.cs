@@ -37,27 +37,10 @@ namespace TheBombGame
             textViewTotalNumberOfBombs.Text = bombCount.ToString();
             textViewCurrentNumberOfBombs.Text = bombCount.ToString();
 
-            List<Player> players = new List<Player>(playerCount);
-            Player nextPlayer = null;
-            for(int i = 1; i <= players.Capacity; i++)
-            {
-                players.Add(new Player()
-                {
-                    PlayerId = i,
-                    PlayerName = $"Player {i}",
-                    Turn = false
-                });
-            }
-
-            foreach(var player in players)
-            {
-                if (player.PlayerId == 1)
-                {
-                    player.Turn = true;
-                    textViewCurrentPlayer.Text = player.PlayerName;
-                    nextPlayer = player;
-                }   
-            }
+            var playerService = new PlayerService();
+            List<Player> players = playerService.CreatePlayerList(playerCount);
+            var nextPlayer = playerService.GetStartPlayer(players);
+            textViewCurrentPlayer.Text = nextPlayer.PlayerName;
 
             GridView gridView = FindViewById<GridView>(Resource.Id.gridViewGameBoard);
             gridView.Adapter = new ImageAdapter(this, fieldCount, bombCount);
@@ -78,20 +61,10 @@ namespace TheBombGame
                 image.SetImageResource(Resource.Drawable.square);
                 image.SetBackgroundColor(new Android.Graphics.Color(0, 255, 0));
 
-                var currentPlayer = players.Where(s => s.PlayerId == nextPlayer.PlayerId).FirstOrDefault();
-
-                if(currentPlayer.PlayerId == players.Capacity)
-                {
-                    nextPlayer = players[0];
-                }
-                else
-                {
-                    nextPlayer = players[currentPlayer.PlayerId];
-                }
-
+                nextPlayer = playerService.GetNextPlayer(players, nextPlayer);
                 textViewCurrentPlayer.Text = nextPlayer.PlayerName;
             };
-            
+
         }
     }
 }
