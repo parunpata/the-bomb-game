@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TheBombGame.Model;
 
-namespace TheBombGame
+namespace TheBombGame.Service
 {
     public class PlayerService
     {

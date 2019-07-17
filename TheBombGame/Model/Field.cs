@@ -1,4 +1,4 @@
-﻿namespace TheBombGame
+﻿namespace TheBombGame.Model
 {
     public class Field
     {
