@@ -3590,6 +3590,7 @@ namespace TheBombGame
 			// aapt resource value: 0x7f09005a
 			public const int textStart = 2131296346;
 			
+
 			// aapt resource value: 0x7f0900a1
 			public const int textView1 = 2131296417;
 			
@@ -3598,6 +3599,15 @@ namespace TheBombGame
 			
 			// aapt resource value: 0x7f09009f
 			public const int textViewCurrentNumberOfFields = 2131296415;
+
+			// aapt resource value: 0x7f0900a0
+			public const int textViewCurrentNumberOfBombs = 2131296416;
+			
+			// aapt resource value: 0x7f09009f
+			public const int textViewCurrentNumberOfFields = 2131296415;
+			
+			// aapt resource value: 0x7f0900a1
+			public const int textViewCurrentPlayer = 2131296417;
 			
 			// aapt resource value: 0x7f09009e
 			public const int textViewTotalNumberOfBombs = 2131296414;

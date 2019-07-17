@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-
-namespace TheBombGame
+﻿namespace TheBombGame
 {
     public class Field
     {
-        public int Id { get; set; }
+        public int FieldId { get; set; }
         public int ResourceId { get; set; }
         public bool IsBomb { get; set; }
     }

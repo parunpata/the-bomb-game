@@ -22,7 +22,7 @@ namespace TheBombGame
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.activity_game_board);
 
-            int playerCount = Intent.GetIntExtra("playerCount", 1);
+            int playerCount = Intent.GetIntExtra("playerCount", 2);
             int fieldCount = Intent.GetIntExtra("fieldCount", 9);
             int bombCount = Intent.GetIntExtra("bombCount", 1);
 
@@ -30,11 +30,17 @@ namespace TheBombGame
             TextView textViewCurrentNumberOfFields = FindViewById<TextView>(Resource.Id.textViewCurrentNumberOfFields);
             TextView textViewTotalNumberOfBombs = FindViewById<TextView>(Resource.Id.textViewTotalNumberOfBombs);
             TextView textViewCurrentNumberOfBombs = FindViewById<TextView>(Resource.Id.textViewCurrentNumberOfBombs);
+            TextView textViewCurrentPlayer = FindViewById<TextView>(Resource.Id.textViewCurrentPlayer);
 
             textViewTotalNumberOfFields.Text = fieldCount.ToString();
             textViewCurrentNumberOfFields.Text = fieldCount.ToString();
             textViewTotalNumberOfBombs.Text = bombCount.ToString();
             textViewCurrentNumberOfBombs.Text = bombCount.ToString();
+
+            var playerService = new PlayerService();
+            List<Player> players = playerService.CreatePlayerList(playerCount);
+            var nextPlayer = playerService.GetStartPlayer(players);
+            textViewCurrentPlayer.Text = nextPlayer.PlayerName;
 
             GridView gridView = FindViewById<GridView>(Resource.Id.gridViewGameBoard);
             gridView.Adapter = new ImageAdapter(this, fieldCount, bombCount);
@@ -47,15 +53,18 @@ namespace TheBombGame
                 {
                     AlertDialog.Builder alert = new AlertDialog.Builder(this);
                     alert.SetTitle("Lost");
-                    alert.SetMessage("You Lost");
+                    alert.SetMessage($" {nextPlayer.PlayerName} Lost");
 
                     Dialog dialog = alert.Create();
                     dialog.Show();
                 }
                 image.SetImageResource(Resource.Drawable.square);
                 image.SetBackgroundColor(new Android.Graphics.Color(0, 255, 0));
+
+                nextPlayer = playerService.GetNextPlayer(players, nextPlayer);
+                textViewCurrentPlayer.Text = nextPlayer.PlayerName;
             };
-            
+
         }
     }
 }
