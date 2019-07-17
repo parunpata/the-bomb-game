@@ -31,7 +31,7 @@ namespace TheBombGame
                     .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
             };
 
-            var playerCount = 1;
+            var playerCount = 2 ;
             RadioButton radioButtonOnePlayer = FindViewById<RadioButton>(Resource.Id.radioButtonOnePlayer);
             RadioButton radioButtonTwoPlayer = FindViewById<RadioButton>(Resource.Id.radioButtonTwoPlayer);
             RadioButton radioButtonThreePlayer = FindViewById<RadioButton>(Resource.Id.radioButtonThreePlayer);
