@@ -84,7 +84,6 @@ namespace TheBombGame
 
             if(gameFields[position].IsBomb == true)
             {
-                imageView.SetBackgroundColor(new Android.Graphics.Color(255, 0, 0));
                 imageView.Tag = true;
             }
             imageView.SetImageResource(gameFields[position].ResourceId);

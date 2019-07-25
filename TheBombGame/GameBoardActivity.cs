@@ -28,7 +28,7 @@ namespace TheBombGame
             TextView textViewTotalNumberOfBombs = FindViewById<TextView>(Resource.Id.textViewTotalNumberOfBombs);
             TextView textViewCurrentPlayer = FindViewById<TextView>(Resource.Id.textViewCurrentPlayer);
             TextView textViewLoser = FindViewById<TextView>(Resource.Id.textViewLoser);
-
+            textViewLoser.Text = "";
             LinearLayout linearLayoutGameField = FindViewById<LinearLayout>(Resource.Id.linearLayoutGameField);
 
             textViewTotalNumberOfFields.Text = fieldCount.ToString();
@@ -46,32 +46,32 @@ namespace TheBombGame
             gridView.ItemClick += (sender, e) =>
             {
                 ImageView image = (ImageView)e.View;
-                View view = (View)sender;
+                
                 if ((bool)image.Tag == true)
                 {
                     
-                    textViewLoser.Text = $"{nextPlayer.PlayerName}";
-                    Snackbar.Make(view, "Replace with your own action", Snackbar.LengthIndefinite)
-                   .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
-                    linearLayoutGameField.Activated = false;
+                    textViewLoser.Text = $"{nextPlayer.PlayerName} LOST";
+
+                    for (int i = 0; i < gridView.Count; i++)
+                    {
+                        ImageView imageView = (ImageView)gridView.GetChildAt(i);
+                        if ((bool)imageView.Tag == true)
+                        {
+                            imageView.SetBackgroundColor(new Android.Graphics.Color(255, 0, 0));
+                            
+                        }
+                        imageView.SetOnClickListener(null);
+                    }                  
                 }
                 else
                 {
                     fieldCount--;
                     textViewCurrentNumberOfFields.Text = fieldCount.ToString();
-                    //image.SetImageResource(Resource.Drawable.square);
-                    //image.SetBackgroundColor(new Android.Graphics.Color(0, 255, 0));
                     image.Visibility = Android.Views.ViewStates.Invisible;
                     nextPlayer = playerService.GetNextPlayer(players, nextPlayer);
                     textViewCurrentPlayer.Text = nextPlayer.PlayerName;
                 }
-
-
-
-
-              
             };
-
         }
     }
 }
