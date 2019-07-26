@@ -27,9 +27,8 @@ namespace TheBombGame
             TextView textViewCurrentNumberOfFields = FindViewById<TextView>(Resource.Id.textViewCurrentNumberOfFields);
             TextView textViewTotalNumberOfBombs = FindViewById<TextView>(Resource.Id.textViewTotalNumberOfBombs);
             TextView textViewCurrentPlayer = FindViewById<TextView>(Resource.Id.textViewCurrentPlayer);
-            TextView textViewLoser = FindViewById<TextView>(Resource.Id.textViewLoser);
-            textViewLoser.Text = "";
-            LinearLayout linearLayoutGameField = FindViewById<LinearLayout>(Resource.Id.linearLayoutGameField);
+            TextView textViewResult = FindViewById<TextView>(Resource.Id.textViewResult);
+            textViewResult.Text = "";
 
             textViewTotalNumberOfFields.Text = fieldCount.ToString();
             textViewCurrentNumberOfFields.Text = fieldCount.ToString();
@@ -49,29 +48,45 @@ namespace TheBombGame
                 
                 if ((bool)image.Tag == true)
                 {
-                    
-                    textViewLoser.Text = $"{nextPlayer.PlayerName} LOST";
 
-                    for (int i = 0; i < gridView.Count; i++)
-                    {
-                        ImageView imageView = (ImageView)gridView.GetChildAt(i);
-                        if ((bool)imageView.Tag == true)
-                        {
-                            imageView.SetBackgroundColor(new Android.Graphics.Color(255, 0, 0));
-                            
-                        }
-                        imageView.SetOnClickListener(null);
-                    }                  
+                    textViewResult.Text = $"{nextPlayer.PlayerName} LOST";
+                    textViewResult.SetTextColor(new Android.Graphics.Color(128, 0, 0));
+                    EndTheGame(gridView);
                 }
                 else
                 {
                     fieldCount--;
                     textViewCurrentNumberOfFields.Text = fieldCount.ToString();
                     image.Visibility = Android.Views.ViewStates.Invisible;
-                    nextPlayer = playerService.GetNextPlayer(players, nextPlayer);
-                    textViewCurrentPlayer.Text = nextPlayer.PlayerName;
+
+                    if(fieldCount == bombCount)
+                    {
+                        textViewResult.Text = "DRAW!";
+                        textViewResult.SetTextColor(new Android.Graphics.Color(0, 128, 0));
+
+                        EndTheGame(gridView);
+                    }
+                    else
+                    {
+                        nextPlayer = playerService.GetNextPlayer(players, nextPlayer);
+                        textViewCurrentPlayer.Text = nextPlayer.PlayerName;
+                    }    
                 }
             };
+        }
+
+        private void EndTheGame(GridView gridView)
+        {
+            for (int i = 0; i < gridView.Count; i++)
+            {
+                ImageView imageView = (ImageView)gridView.GetChildAt(i);
+                if ((bool)imageView.Tag == true)
+                {
+                    imageView.SetBackgroundColor(new Android.Graphics.Color(255, 0, 0));
+                    //imageView.SetBackgroundResource(Resource.Drawable.bomb);
+                }
+                imageView.SetOnClickListener(null);
+            }
         }
     }
 }
