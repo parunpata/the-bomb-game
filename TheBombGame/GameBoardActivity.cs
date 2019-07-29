@@ -57,13 +57,13 @@ namespace TheBombGame
                 {
                     fieldCount--;
                     textViewCurrentNumberOfFields.Text = fieldCount.ToString();
-                    image.Visibility = Android.Views.ViewStates.Invisible;
+                    image.SetImageResource(Resource.Drawable.grass);
+                    image.SetOnClickListener(null);
 
                     if(fieldCount == bombCount)
                     {
                         textViewResult.Text = "DRAW!";
                         textViewResult.SetTextColor(new Android.Graphics.Color(0, 128, 0));
-
                         EndTheGame(gridView);
                     }
                     else
@@ -74,7 +74,7 @@ namespace TheBombGame
                 }
             };
         }
-
+        
         private void EndTheGame(GridView gridView)
         {
             for (int i = 0; i < gridView.Count; i++)
@@ -82,8 +82,7 @@ namespace TheBombGame
                 ImageView imageView = (ImageView)gridView.GetChildAt(i);
                 if ((bool)imageView.Tag == true)
                 {
-                    imageView.SetBackgroundColor(new Android.Graphics.Color(255, 0, 0));
-                    //imageView.SetBackgroundResource(Resource.Drawable.bomb);
+                    imageView.SetImageResource(Resource.Drawable.bomb);
                 }
                 imageView.SetOnClickListener(null);
             }

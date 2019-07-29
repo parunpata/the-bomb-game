@@ -75,18 +75,19 @@ namespace TheBombGame
                 imageView.LayoutParameters = new GridView.LayoutParams(250, 250);
                 imageView.SetScaleType(ImageView.ScaleType.CenterCrop);
                 imageView.SetPadding(15, 15, 15, 15);
-                
+
+                if (gameFields[position].IsBomb == true)
+                {
+                    imageView.Tag = true;
+                }
+                imageView.SetImageResource(gameFields[position].ResourceId);
             }
             else
             {
                 imageView = (ImageView)convertView;
             }
 
-            if(gameFields[position].IsBomb == true)
-            {
-                imageView.Tag = true;
-            }
-            imageView.SetImageResource(gameFields[position].ResourceId);
+           
             return imageView;
         }
 
