@@ -90,9 +90,10 @@ namespace TheBombGame
 
         private void EndTheGameAfterDraw(GridView gridView)
         {
-            ImageView imageView = (ImageView)gridView.GetChildAt(i);
+
             for (int i = 0; i < gridView.Count; i++)
             {
+                ImageView imageView = (ImageView)gridView.GetChildAt(i);
                 imageView.SetOnClickListener(null);
             }
         }
