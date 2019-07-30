@@ -51,7 +51,7 @@ namespace TheBombGame
 
                     textViewResult.Text = $"{nextPlayer.PlayerName} LOST";
                     textViewResult.SetTextColor(new Android.Graphics.Color(128, 0, 0));
-                    EndTheGame(gridView);
+                    EndTheGameAfterLoose(gridView);
                 }
                 else
                 {
@@ -64,7 +64,7 @@ namespace TheBombGame
                     {
                         textViewResult.Text = "DRAW!";
                         textViewResult.SetTextColor(new Android.Graphics.Color(0, 128, 0));
-                        EndTheGame(gridView);
+                        EndTheGameAfterDraw(gridView);
                     }
                     else
                     {
@@ -75,7 +75,7 @@ namespace TheBombGame
             };
         }
         
-        private void EndTheGame(GridView gridView)
+        private void EndTheGameAfterLoose(GridView gridView)
         {
             for (int i = 0; i < gridView.Count; i++)
             {
@@ -84,6 +84,15 @@ namespace TheBombGame
                 {
                     imageView.SetImageResource(Resource.Drawable.bomb);
                 }
+                imageView.SetOnClickListener(null);
+            }
+        }
+
+        private void EndTheGameAfterDraw(GridView gridView)
+        {
+            ImageView imageView = (ImageView)gridView.GetChildAt(i);
+            for (int i = 0; i < gridView.Count; i++)
+            {
                 imageView.SetOnClickListener(null);
             }
         }
