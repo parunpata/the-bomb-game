@@ -23,13 +23,13 @@ namespace TheBombGame
             Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
-            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            fab.Click += (sender, e) =>
-            {
-                View view = (View)sender;
-                Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
-                    .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
-            };
+            //FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
+            //fab.Click += (sender, e) =>
+            //{
+            //    View view = (View)sender;
+            //    Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
+            //        .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
+            //};
 
             var playerCount = 2 ;
             RadioButton radioButtonOnePlayer = FindViewById<RadioButton>(Resource.Id.radioButtonOnePlayer);

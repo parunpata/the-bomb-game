@@ -67,7 +67,7 @@ namespace TheBombGame
                         EndTheGameAfterDraw(gridView);
                     }
                     else
-                    {
+                    {   
                         nextPlayer = playerService.GetNextPlayer(players, nextPlayer);
                         textViewCurrentPlayer.Text = nextPlayer.PlayerName;
                     }    
