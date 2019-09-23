@@ -4369,6 +4369,9 @@ namespace TheBombGame
 			// aapt resource value: 0x7f0d0035
 			public const int status_bar_notification_info_overflow = 2131558453;
 			
+			// aapt resource value: 0x7f0d003b
+			public const int too_much_bombs = 2131558459;
+			
 			static String()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

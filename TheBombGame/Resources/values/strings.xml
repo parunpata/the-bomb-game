@@ -5,5 +5,7 @@
     <string name="player_count">Player Count</string>
     <string name="field_count">Field Count</string>
     <string name="bomb_count">Bomb Count</string>
+
+    <string name="too_much_bombs">There can\'t be more bombs than fields.</string>
 </resources>
  
