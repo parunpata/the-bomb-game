@@ -56,11 +56,19 @@ namespace TheBombGame
             Button buttonStart = FindViewById<Button>(Resource.Id.buttonStart);
             buttonStart.Click += (sender, e) =>
             {
-                var activity = new Intent(this, typeof(GameBoardActivity));
-                activity.PutExtra("playerCount", playerCount);
-                activity.PutExtra("fieldCount", fieldCount);
-                activity.PutExtra("bombCount", bombCount);
-                StartActivity(activity);
+                if (fieldCount > bombCount)
+                {
+                    var activity = new Intent(this, typeof(GameBoardActivity));
+                    activity.PutExtra("playerCount", playerCount);
+                    activity.PutExtra("fieldCount", fieldCount);
+                    activity.PutExtra("bombCount", bombCount);
+                    StartActivity(activity);
+                }
+                else
+                {
+                    Toast.MakeText(this, Resource.String.too_much_bombs, ToastLength.Short).Show();
+                }
+
             };
         }
 
