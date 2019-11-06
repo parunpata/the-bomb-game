@@ -85,6 +85,11 @@ namespace TheBombGame
             {
                 return true;
             }
+            if (id == Resource.Id.action_about)
+            {
+                var activity = new Intent(this, typeof(AboutActivity));
+                StartActivity(activity);
+            }
 
             return base.OnOptionsItemSelected(item);
         }
