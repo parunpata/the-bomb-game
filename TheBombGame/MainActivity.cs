@@ -7,6 +7,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using System;
+using Android.Net;
 
 namespace TheBombGame
 {
@@ -87,8 +88,7 @@ namespace TheBombGame
             }
             if (id == Resource.Id.action_rate)
             {
-                var activity = new Intent(this, typeof(RateActivity));
-                StartActivity(activity);
+                OpenPlayStoreLink();
             }
             if (id == Resource.Id.action_about)
             {
@@ -97,6 +97,24 @@ namespace TheBombGame
             }
 
             return base.OnOptionsItemSelected(item);
+        }
+
+        private void OpenPlayStoreLink()
+        {
+            var a = PackageName;
+            var activity = new Intent(Intent.ActionView);
+            try
+            {
+                activity.SetData(Android.Net.Uri.Parse("market://details?id=com.supercell.clashofclans"));
+                StartActivity(activity);
+            }
+            catch (Android.Content.ActivityNotFoundException anfe)
+            {
+                {
+                    activity.SetData(Android.Net.Uri.Parse("https://play.google.com/store/apps/details?id=com.supercell.clashofclans"));
+                    StartActivity(activity);
+                }
+            }
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
