@@ -2,19 +2,16 @@
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using System;
-using Android.Net;
 
 namespace TheBombGame
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -32,7 +29,7 @@ namespace TheBombGame
             //        .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
             //};
 
-            var playerCount = 2 ;
+            var playerCount = 2;
             RadioButton radioButtonOnePlayer = FindViewById<RadioButton>(Resource.Id.radioButtonOnePlayer);
             RadioButton radioButtonTwoPlayer = FindViewById<RadioButton>(Resource.Id.radioButtonTwoPlayer);
             RadioButton radioButtonThreePlayer = FindViewById<RadioButton>(Resource.Id.radioButtonThreePlayer);
@@ -41,7 +38,7 @@ namespace TheBombGame
             radioButtonTwoPlayer.Click += (sender, e) => playerCount = Convert.ToInt16(radioButtonTwoPlayer.Text);
             radioButtonThreePlayer.Click += (sender, e) => playerCount = Convert.ToInt16(radioButtonThreePlayer.Text);
             radioButtonFourPlayer.Click += (sender, e) => playerCount = Convert.ToInt16(radioButtonFourPlayer.Text);
-     
+
             NumberPicker npFieldCount = FindViewById<NumberPicker>(Resource.Id.numberPickerFieldCount);
             npFieldCount.MinValue = 2;
             npFieldCount.MaxValue = 32;
@@ -69,7 +66,6 @@ namespace TheBombGame
                 {
                     Toast.MakeText(this, Resource.String.too_much_bombs, ToastLength.Short).Show();
                 }
-
             };
         }
 
@@ -110,10 +106,9 @@ namespace TheBombGame
             }
             catch (Android.Content.ActivityNotFoundException anfe)
             {
-                {
-                    activity.SetData(Android.Net.Uri.Parse("https://play.google.com/store/apps/details?id=com.supercell.clashofclans"));
-                    StartActivity(activity);
-                }
+                Toast.MakeText(this, anfe.Message, ToastLength.Short);
+                activity.SetData(Android.Net.Uri.Parse("https://play.google.com/store/apps/details?id=com.supercell.clashofclans"));
+                StartActivity(activity);
             }
         }
 
@@ -123,6 +118,5 @@ namespace TheBombGame
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-	}
+    }
 }
-

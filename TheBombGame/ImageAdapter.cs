@@ -7,10 +7,11 @@ using TheBombGame.Model;
 
 namespace TheBombGame
 {
-    class ImageAdapter : BaseAdapter
+    internal class ImageAdapter : BaseAdapter
     {
-        readonly Context context;
-        List<Field> gameFields = new List<Field>();
+        private readonly Context context;
+        private List<Field> gameFields = new List<Field>();
+
         public ImageAdapter(Context c, int fieldCount, int bombCount)
         {
             context = c;
@@ -27,7 +28,6 @@ namespace TheBombGame
                 gameFields.Add(field);
             }
 
-
             List<int> bombPositions = new List<int>();
             Random random = new Random();
             while (bombCount > 0)
@@ -40,7 +40,6 @@ namespace TheBombGame
                 }
             }
 
-
             foreach (var field in gameFields)
             {
                 if (bombPositions.Contains(field.FieldId))
@@ -48,7 +47,7 @@ namespace TheBombGame
                     field.IsBomb = true;
                 }
             }
-         }
+        }
 
         public override int Count
         {
@@ -68,7 +67,7 @@ namespace TheBombGame
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             ImageView imageView;
-            
+
             if (convertView == null)
             {
                 imageView = new ImageView(context);
@@ -87,9 +86,7 @@ namespace TheBombGame
                 imageView = (ImageView)convertView;
             }
 
-           
             return imageView;
         }
-
     }
 }
