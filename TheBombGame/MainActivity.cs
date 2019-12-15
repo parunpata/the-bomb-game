@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Gms.Ads;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
@@ -12,6 +13,10 @@ namespace TheBombGame
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+        protected AdView mAdView;
+        protected InterstitialAd mInterstitialAd;
+        protected Button mLoadInterstitialButton;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -20,6 +25,20 @@ namespace TheBombGame
 
             Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
+
+            #region
+            mAdView = FindViewById<AdView>(Resource.Id.adView);
+            var adRequest = new AdRequest.Builder().Build();
+            mAdView.LoadAd(adRequest);
+
+            //mInterstitialAd = new InterstitialAd(this);
+            //mInterstitialAd.AdUnitId = GetString(Resource.String.test_interstitial_ad_unit_id);
+
+            //mInterstitialAd.AdListener = new AdListener(this);
+
+            //mLoadInterstitialButton = FindViewById<Button>(Resource.Id.load_interstitial_button);
+            //mLoadInterstitialButton.SetOnClickListener(new OnClickListener(this));
+            #endregion
 
             //FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             //fab.Click += (sender, e) =>
@@ -67,6 +86,32 @@ namespace TheBombGame
                     Toast.MakeText(this, Resource.String.too_much_bombs, ToastLength.Short).Show();
                 }
             };
+        }
+        protected override void OnPause()
+        {
+            if (mAdView != null)
+            {
+                mAdView.Pause();
+            }
+            base.OnPause();
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            if (mAdView != null)
+            {
+                mAdView.Resume();
+            }
+        }
+
+        protected override void OnDestroy()
+        {
+            if (mAdView != null)
+            {
+                mAdView.Destroy();
+            }
+            base.OnDestroy();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
