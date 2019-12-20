@@ -123,10 +123,10 @@ namespace TheBombGame
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             int id = item.ItemId;
-            if (id == Resource.Id.action_settings)
-            {
-                return true;
-            }
+            //if (id == Resource.Id.action_settings)
+            //{
+            //    return true;
+            //}
             if (id == Resource.Id.action_rate)
             {
                 OpenPlayStoreLink();
@@ -146,13 +146,13 @@ namespace TheBombGame
             var activity = new Intent(Intent.ActionView);
             try
             {
-                activity.SetData(Android.Net.Uri.Parse("market://details?id=com.supercell.clashofclans"));
+                activity.SetData(Android.Net.Uri.Parse("market://details?id=com.twentycode.thebombgame"));
                 StartActivity(activity);
             }
             catch (Android.Content.ActivityNotFoundException anfe)
             {
                 Toast.MakeText(this, anfe.Message, ToastLength.Short);
-                activity.SetData(Android.Net.Uri.Parse("https://play.google.com/store/apps/details?id=com.supercell.clashofclans"));
+                activity.SetData(Android.Net.Uri.Parse("https://play.google.com/store/apps/details?id=com.twentycode.thebombgame"));
                 StartActivity(activity);
             }
         }
