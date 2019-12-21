@@ -61,12 +61,14 @@ namespace TheBombGame
             NumberPicker npFieldCount = FindViewById<NumberPicker>(Resource.Id.numberPickerFieldCount);
             npFieldCount.MinValue = 2;
             npFieldCount.MaxValue = 32;
+            npFieldCount.Value = 16;
             int fieldCount = npFieldCount.Value;
             npFieldCount.ValueChanged += (sender, e) => fieldCount = e.NewVal;
 
             NumberPicker npBombCount = FindViewById<NumberPicker>(Resource.Id.numberPickerBombCount);
             npBombCount.MinValue = 1;
             npBombCount.MaxValue = npFieldCount.MaxValue - 1;
+            npBombCount.Value = 1;
             int bombCount = npBombCount.Value;
             npBombCount.ValueChanged += (sender, e) => bombCount = e.NewVal;
 
@@ -142,17 +144,17 @@ namespace TheBombGame
 
         private void OpenPlayStoreLink()
         {
-            var a = PackageName;
+            var packageName = PackageName;
             var activity = new Intent(Intent.ActionView);
             try
             {
-                activity.SetData(Android.Net.Uri.Parse("market://details?id=com.twentycode.thebombgame"));
+                activity.SetData(Android.Net.Uri.Parse("market://details?id=" + packageName));
                 StartActivity(activity);
             }
             catch (Android.Content.ActivityNotFoundException anfe)
             {
                 Toast.MakeText(this, anfe.Message, ToastLength.Short);
-                activity.SetData(Android.Net.Uri.Parse("https://play.google.com/store/apps/details?id=com.twentycode.thebombgame"));
+                activity.SetData(Android.Net.Uri.Parse("https://play.google.com/store/apps/details?id=" + packageName));
                 StartActivity(activity);
             }
         }
