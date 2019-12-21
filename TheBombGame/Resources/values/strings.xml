@@ -8,6 +8,8 @@
     <string name="field_count">Field Count</string>
     <string name="bomb_count">Bomb Count</string>
 
+    <string name="start_game">Start the Bomb Game</string>
+  
     <string name="too_much_bombs">There can\'t be more bombs than fields.</string>
 
   <string name="app_id">ca-app-pub-7593035700920158~8662483064</string>

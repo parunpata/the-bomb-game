@@ -2859,28 +2859,31 @@ namespace TheBombGame
 			public const int subtitle_shadow_radius = 2131099861;
 			
 			// aapt resource value: 0x7F0600D6
-			public const int tooltip_corner_radius = 2131099862;
+			public const int title_text_size = 2131099862;
 			
 			// aapt resource value: 0x7F0600D7
-			public const int tooltip_horizontal_padding = 2131099863;
+			public const int tooltip_corner_radius = 2131099863;
 			
 			// aapt resource value: 0x7F0600D8
-			public const int tooltip_margin = 2131099864;
+			public const int tooltip_horizontal_padding = 2131099864;
 			
 			// aapt resource value: 0x7F0600D9
-			public const int tooltip_precise_anchor_extra_offset = 2131099865;
+			public const int tooltip_margin = 2131099865;
 			
 			// aapt resource value: 0x7F0600DA
-			public const int tooltip_precise_anchor_threshold = 2131099866;
+			public const int tooltip_precise_anchor_extra_offset = 2131099866;
 			
 			// aapt resource value: 0x7F0600DB
-			public const int tooltip_vertical_padding = 2131099867;
+			public const int tooltip_precise_anchor_threshold = 2131099867;
 			
 			// aapt resource value: 0x7F0600DC
-			public const int tooltip_y_offset_non_touch = 2131099868;
+			public const int tooltip_vertical_padding = 2131099868;
 			
 			// aapt resource value: 0x7F0600DD
-			public const int tooltip_y_offset_touch = 2131099869;
+			public const int tooltip_y_offset_non_touch = 2131099869;
+			
+			// aapt resource value: 0x7F0600DE
+			public const int tooltip_y_offset_touch = 2131099870;
 			
 			static Dimension()
 			{
@@ -4463,10 +4466,13 @@ namespace TheBombGame
 			public const int search_menu_title = 2131624004;
 			
 			// aapt resource value: 0x7F0E0045
-			public const int status_bar_notification_info_overflow = 2131624005;
+			public const int start_game = 2131624005;
 			
 			// aapt resource value: 0x7F0E0046
-			public const int too_much_bombs = 2131624006;
+			public const int status_bar_notification_info_overflow = 2131624006;
+			
+			// aapt resource value: 0x7F0E0047
+			public const int too_much_bombs = 2131624007;
 			
 			static String()
 			{
