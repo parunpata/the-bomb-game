@@ -86,10 +86,7 @@
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_main.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\content_main.axml">
+    <AndroidResource Include="Resources\layout\activity_main.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\values\colors.xml" />
@@ -118,7 +115,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_game_board.axml">
+    <AndroidResource Include="Resources\layout\activity_game_board.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -135,10 +132,12 @@
     <AndroidResource Include="Resources\layout\activity_rate.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\menu\menu_main.axml" />
+    <AndroidResource Include="Resources\menu\menu_main.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_about.axml" />
+    <AndroidResource Include="Resources\layout\activity_about.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\web_hi_res_512.png" />
@@ -173,6 +172,9 @@
     <None Include="Images\stereoskop.png" />
     <None Include="Images\tvbanner.png" />
     <None Include="Images\werbegrafik.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\content_main.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

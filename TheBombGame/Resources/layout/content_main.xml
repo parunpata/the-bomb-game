@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:padding="10dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -23,6 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/title_text_size"
                 android:text="@string/player_count"/>
 
             <RadioGroup
@@ -64,7 +66,12 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+        
+            <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -72,6 +79,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/title_text_size"
                 android:text="@string/field_count"/>
 
             <NumberPicker
@@ -81,7 +89,12 @@
                 android:id="@+id/numberPickerFieldCount"/>
 
         </LinearLayout>
-
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+        
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -90,6 +103,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/title_text_size"
                 android:text="@string/bomb_count"/>
 
             <NumberPicker
@@ -111,8 +125,10 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonStart"
-            android:text="Start the Bomb Game"/>
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:text="@string/start_game"
+            android:id="@+id/buttonStart"/>
 
          <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
