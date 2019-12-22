@@ -17,8 +17,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="40dp"
         android:text="Developed by TwentyCode"/>
+
+    <ImageView
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/imageView1" />
 
     <TextView
         android:layout_width="wrap_content"
