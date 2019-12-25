@@ -21,7 +21,7 @@ namespace TheBombGame
                 var field = new Field
                 {
                     FieldId = i,
-                    ResourceId = Resource.Drawable.square,
+                    ResourceId = Resource.Drawable.grass,
                     IsBomb = false
                 };
 
