@@ -57,7 +57,7 @@ namespace TheBombGame
                 {
                     fieldCount--;
                     textViewCurrentNumberOfFields.Text = fieldCount.ToString();
-                    image.SetImageResource(Resource.Drawable.grass);
+                    image.SetImageResource(Resource.Drawable.sheep);
                     image.SetOnClickListener(null);
 
                     if(fieldCount == bombCount)
