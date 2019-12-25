@@ -11,6 +11,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Screenshots", "Screenshots", "{8B555DFF-6825-4894-B7D2-A6C4F103FB0A}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshots\Screenshot_1577035024.png = Screenshots\Screenshot_1577035024.png
+		Screenshots\Screenshot_1577035039.png = Screenshots\Screenshot_1577035039.png
+		Screenshots\Screenshot_1577035061.png = Screenshots\Screenshot_1577035061.png
+		Screenshots\Screenshot_1577035234.png = Screenshots\Screenshot_1577035234.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{1B047282-6DCA-4A87-B536-6C4C27F822CD}"
+	ProjectSection(SolutionItems) = preProject
+		Images\functionsgraphic.png = Images\functionsgraphic.png
+		Images\stereoskop.png = Images\stereoskop.png
+		Images\tvbanner.png = Images\tvbanner.png
+		Images\web_hi_res_512.png = Images\web_hi_res_512.png
+		Images\werbegrafik.png = Images\werbegrafik.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +43,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8B555DFF-6825-4894-B7D2-A6C4F103FB0A} = {FF98F932-2AB1-47DF-9433-0C9F281C91C4}
+		{1B047282-6DCA-4A87-B536-6C4C27F822CD} = {FF98F932-2AB1-47DF-9433-0C9F281C91C4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15EF8C95-AE09-487E-BA01-B3A5F9477B49}
