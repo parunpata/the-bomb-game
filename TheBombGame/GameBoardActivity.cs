@@ -24,9 +24,9 @@ namespace TheBombGame
                 int fieldCount = Intent.GetIntExtra("fieldCount", 9);
                 int bombCount = Intent.GetIntExtra("bombCount", 1);
 
-                TextView textViewTotalNumberOfFields = FindViewById<TextView>(Resource.Id.textViewTotalNumberOfFields);
-                TextView textViewCurrentNumberOfFields = FindViewById<TextView>(Resource.Id.textViewCurrentNumberOfFields);
-                TextView textViewTotalNumberOfBombs = FindViewById<TextView>(Resource.Id.textViewTotalNumberOfBombs);
+                TextView textViewTotalNumberOfFields = FindViewById<TextView>(Resource.Id.textViewNumberOfFields);
+                TextView textViewCurrentNumberOfFields = FindViewById<TextView>(Resource.Id.textViewRemainingFields);
+                TextView textViewTotalNumberOfBombs = FindViewById<TextView>(Resource.Id.textViewNumberOfBombs);
                 TextView textViewCurrentPlayer = FindViewById<TextView>(Resource.Id.textViewCurrentPlayer);
                 TextView textViewResult = FindViewById<TextView>(Resource.Id.textViewResult);
                 textViewResult.Text = "";

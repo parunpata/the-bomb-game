@@ -3821,19 +3821,19 @@ namespace TheBombGame
 			public const int textStart = 2131230904;
 			
 			// aapt resource value: 0x7F0800B9
-			public const int textViewCurrentNumberOfFields = 2131230905;
+			public const int textViewCurrentPlayer = 2131230905;
 			
 			// aapt resource value: 0x7F0800BA
-			public const int textViewCurrentPlayer = 2131230906;
+			public const int textViewNumberOfBombs = 2131230906;
 			
 			// aapt resource value: 0x7F0800BB
-			public const int textViewResult = 2131230907;
+			public const int textViewNumberOfFields = 2131230907;
 			
 			// aapt resource value: 0x7F0800BC
-			public const int textViewTotalNumberOfBombs = 2131230908;
+			public const int textViewRemainingFields = 2131230908;
 			
 			// aapt resource value: 0x7F0800BD
-			public const int textViewTotalNumberOfFields = 2131230909;
+			public const int textViewResult = 2131230909;
 			
 			// aapt resource value: 0x7F0800BE
 			public const int text_input_password_toggle = 2131230910;
@@ -4397,19 +4397,19 @@ namespace TheBombGame
 			public const int banner_ad_unit_id = 2131623981;
 			
 			// aapt resource value: 0x7F0E002E
-			public const int bomb_count = 2131623982;
+			public const int bottom_sheet_behavior = 2131623982;
 			
 			// aapt resource value: 0x7F0E002F
-			public const int bottom_sheet_behavior = 2131623983;
+			public const int character_counter_content_description = 2131623983;
 			
 			// aapt resource value: 0x7F0E0030
-			public const int character_counter_content_description = 2131623984;
+			public const int character_counter_pattern = 2131623984;
 			
 			// aapt resource value: 0x7F0E0031
-			public const int character_counter_pattern = 2131623985;
+			public const int common_google_play_services_unknown_issue = 2131623985;
 			
 			// aapt resource value: 0x7F0E0032
-			public const int common_google_play_services_unknown_issue = 2131623986;
+			public const int error_too_much_bombs = 2131623986;
 			
 			// aapt resource value: 0x7F0E0033
 			public const int fab_transformation_scrim_behavior = 2131623987;
@@ -4418,61 +4418,67 @@ namespace TheBombGame
 			public const int fab_transformation_sheet_behavior = 2131623988;
 			
 			// aapt resource value: 0x7F0E0035
-			public const int field_count = 2131623989;
+			public const int hide_bottom_view_on_scroll_behavior = 2131623989;
 			
 			// aapt resource value: 0x7F0E0036
-			public const int hide_bottom_view_on_scroll_behavior = 2131623990;
+			public const int mtrl_chip_close_icon_content_description = 2131623990;
 			
 			// aapt resource value: 0x7F0E0037
-			public const int mtrl_chip_close_icon_content_description = 2131623991;
+			public const int next = 2131623991;
 			
 			// aapt resource value: 0x7F0E0038
-			public const int password_toggle_content_description = 2131623992;
+			public const int number_of_bombs = 2131623992;
 			
 			// aapt resource value: 0x7F0E0039
-			public const int path_password_eye = 2131623993;
+			public const int number_of_fields = 2131623993;
 			
 			// aapt resource value: 0x7F0E003A
-			public const int path_password_eye_mask_strike_through = 2131623994;
+			public const int number_of_players = 2131623994;
 			
 			// aapt resource value: 0x7F0E003B
-			public const int path_password_eye_mask_visible = 2131623995;
+			public const int password_toggle_content_description = 2131623995;
 			
 			// aapt resource value: 0x7F0E003C
-			public const int path_password_strike_through = 2131623996;
+			public const int path_password_eye = 2131623996;
 			
 			// aapt resource value: 0x7F0E003D
-			public const int player_count = 2131623997;
+			public const int path_password_eye_mask_strike_through = 2131623997;
 			
 			// aapt resource value: 0x7F0E003E
-			public const int s1 = 2131623998;
+			public const int path_password_eye_mask_visible = 2131623998;
 			
 			// aapt resource value: 0x7F0E003F
-			public const int s2 = 2131623999;
+			public const int path_password_strike_through = 2131623999;
 			
 			// aapt resource value: 0x7F0E0040
-			public const int s3 = 2131624000;
+			public const int remaining_fields = 2131624000;
 			
 			// aapt resource value: 0x7F0E0041
-			public const int s4 = 2131624001;
+			public const int s1 = 2131624001;
 			
 			// aapt resource value: 0x7F0E0042
-			public const int s5 = 2131624002;
+			public const int s2 = 2131624002;
 			
 			// aapt resource value: 0x7F0E0043
-			public const int s6 = 2131624003;
+			public const int s3 = 2131624003;
 			
 			// aapt resource value: 0x7F0E0044
-			public const int search_menu_title = 2131624004;
+			public const int s4 = 2131624004;
 			
 			// aapt resource value: 0x7F0E0045
-			public const int start_game = 2131624005;
+			public const int s5 = 2131624005;
 			
 			// aapt resource value: 0x7F0E0046
-			public const int status_bar_notification_info_overflow = 2131624006;
+			public const int s6 = 2131624006;
 			
 			// aapt resource value: 0x7F0E0047
-			public const int too_much_bombs = 2131624007;
+			public const int search_menu_title = 2131624007;
+			
+			// aapt resource value: 0x7F0E0048
+			public const int start_game = 2131624008;
+			
+			// aapt resource value: 0x7F0E0049
+			public const int status_bar_notification_info_overflow = 2131624009;
 			
 			static String()
 			{
