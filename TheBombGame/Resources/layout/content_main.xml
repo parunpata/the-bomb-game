@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/title_text_size"
-                android:text="@string/player_count"/>
+                android:text="@string/number_of_players"/>
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/title_text_size"
-                android:text="@string/field_count"/>
+                android:text="@string/number_of_fields"/>
 
             <NumberPicker
                 android:layout_width="wrap_content"
@@ -104,7 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/title_text_size"
-                android:text="@string/bomb_count"/>
+                android:text="@string/number_of_bombs"/>
 
             <NumberPicker
                 android:layout_width="wrap_content"

@@ -1,17 +1,24 @@
 <resources>
-    <string name="app_name">The Bomb Game</string>
-    <string name="action_settings">Settings</string>
-    <string name="action_rate">Rate</string>
-    <string name="action_about">About</string>
-  
-    <string name="player_count">Player Count</string>
-    <string name="field_count">Field Count</string>
-    <string name="bomb_count">Bomb Count</string>
+  <!--General-->
+  <string name="app_name">The Bomb Game</string>
 
-    <string name="start_game">Start the Bomb Game</string>
+  <!--Menu-->
+  <string name="action_settings">Settings</string>
+  <string name="action_rate">Rate</string>
+  <string name="action_about">About</string>
   
-    <string name="too_much_bombs">There can\'t be more bombs than fields.</string>
+  <!--MainActivity-->
+  <string name="number_of_players">Number of players: </string>
+  <string name="number_of_fields">Number of fields: </string>
+  <string name="number_of_bombs">Number of bombs: </string>
+  <string name="start_game">Start the Bomb Game</string>
+  <string name="error_too_much_bombs">There can\'t be more bombs than fields.</string>
+  
+  <!--GameBoardActivity-->
+  <string name="next">Next: </string>
+  <string name="remaining_fields">Remaining fields: </string>
 
+  <!--AdMob-->
   <string name="app_id">ca-app-pub-7593035700920158~8662483064</string>
   <string name="banner_ad_unit_id">ca-app-pub-7593035700920158/4723238050</string>
 </resources>
