@@ -87,7 +87,7 @@ namespace TheBombGame
                     }
                     else
                     {
-                        Toast.MakeText(this, Resource.String.too_much_bombs, ToastLength.Short).Show();
+                        Toast.MakeText(this, Resource.String.error_too_much_bombs, ToastLength.Short).Show();
                     }
                 };
             }
@@ -96,6 +96,7 @@ namespace TheBombGame
                 Toast.MakeText(this, ex.Message, ToastLength.Long);
             }
         }
+
         protected override void OnPause()
         {
             if (mAdView != null)
