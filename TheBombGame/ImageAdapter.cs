@@ -16,20 +16,22 @@ namespace TheBombGame
         {
             context = c;
 
+            //create all fields
             for (int i = 0; i < fieldCount; i++)
             {
                 var field = new Field
                 {
                     FieldId = i,
-                    ResourceId = Resource.Drawable.square,
+                    ResourceId = Resource.Drawable.grass,
                     IsBomb = false
                 };
 
                 gameFields.Add(field);
             }
 
-            List<int> bombPositions = new List<int>();
-            Random random = new Random();
+            //add fields to the bombPositions list
+            var bombPositions = new List<int>();
+            var random = new Random();
             while (bombCount > 0)
             {
                 int randomNumber = random.Next(0, fieldCount);
@@ -40,6 +42,7 @@ namespace TheBombGame
                 }
             }
 
+            //declare all fields in list bombPositions as a bomb
             foreach (var field in gameFields)
             {
                 if (bombPositions.Contains(field.FieldId))
