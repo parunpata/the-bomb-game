@@ -23,26 +23,30 @@ namespace TheBombGame
                 int playerCount = Intent.GetIntExtra("playerCount", 2);
                 int fieldCount = Intent.GetIntExtra("fieldCount", 9);
                 int bombCount = Intent.GetIntExtra("bombCount", 1);
+                int tempFieldCount = fieldCount;
 
-                TextView textViewTotalNumberOfFields = FindViewById<TextView>(Resource.Id.textViewNumberOfFields);
-                TextView textViewCurrentNumberOfFields = FindViewById<TextView>(Resource.Id.textViewRemainingFields);
-                TextView textViewTotalNumberOfBombs = FindViewById<TextView>(Resource.Id.textViewNumberOfBombs);
+                TextView textViewNumberOfFields = FindViewById<TextView>(Resource.Id.textViewNumberOfFields);
+                TextView textViewRemainingFields = FindViewById<TextView>(Resource.Id.textViewRemainingFields);
+                TextView textViewNumberOfBombs = FindViewById<TextView>(Resource.Id.textViewNumberOfBombs);
                 TextView textViewCurrentPlayer = FindViewById<TextView>(Resource.Id.textViewCurrentPlayer);
                 TextView textViewResult = FindViewById<TextView>(Resource.Id.textViewResult);
                 textViewResult.Text = "";
 
-                textViewTotalNumberOfFields.Text = fieldCount.ToString();
-                textViewCurrentNumberOfFields.Text = fieldCount.ToString();
-                textViewTotalNumberOfBombs.Text = bombCount.ToString();
+                textViewNumberOfFields.Text = fieldCount.ToString();
+                textViewRemainingFields.Text = fieldCount.ToString();
+                textViewNumberOfBombs.Text = bombCount.ToString();
+
+                GridView gridView = FindViewById<GridView>(Resource.Id.gridViewGameBoard);
+
 
                 var playerService = new PlayerService();
                 List<Player> players = playerService.CreatePlayerList(playerCount);
                 var nextPlayer = playerService.GetStartPlayer(players);
                 textViewCurrentPlayer.Text = nextPlayer.PlayerName;
 
-                GridView gridView = FindViewById<GridView>(Resource.Id.gridViewGameBoard);
                 gridView.Adapter = new ImageAdapter(this, fieldCount, bombCount);
 
+               
                 gridView.ItemClick += (sender, e) =>
                 {
                     ImageView image = (ImageView)e.View;
@@ -55,12 +59,12 @@ namespace TheBombGame
                     }
                     else
                     {
-                        fieldCount--;
-                        textViewCurrentNumberOfFields.Text = fieldCount.ToString();
+                        tempFieldCount--;
+                        textViewRemainingFields.Text = tempFieldCount.ToString();
                         image.SetImageResource(Resource.Drawable.sheep);
                         image.SetOnClickListener(null);
 
-                        if (fieldCount == bombCount)
+                        if (tempFieldCount == bombCount)
                         {
                             textViewResult.Text = "DRAW!";
                             textViewResult.SetTextColor(new Android.Graphics.Color(0, 128, 0));
@@ -73,6 +77,18 @@ namespace TheBombGame
                         }
                     }
                 };
+
+                //Restart a game
+                Button buttonRestartGame = FindViewById<Button>(Resource.Id.buttonRestartGame);
+                buttonRestartGame.Click += (sender, e) =>
+                {
+                    tempFieldCount = fieldCount;
+                    textViewRemainingFields.Text = fieldCount.ToString();
+                    textViewResult.Text = "";
+
+                    gridView.Adapter = new ImageAdapter(this, fieldCount, bombCount);
+                };
+
             }
             catch (Exception ex)
             {

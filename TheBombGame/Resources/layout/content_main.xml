@@ -126,7 +126,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:textColor="@android:color/white"
+            android:textColor="@color/default_font_color"
             android:text="@string/start_game"
             android:id="@+id/buttonStart"/>
 
