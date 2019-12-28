@@ -59,6 +59,7 @@
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
+    <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -75,7 +76,6 @@
     <Compile Include="ImageAdapter.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Model\Player.cs" />
-    <Compile Include="RateActivity.cs" />
     <Compile Include="Service\PlayerService.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,18 +120,12 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\square.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\bomb.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\grass.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_rate.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\menu\menu_main.xml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
@@ -140,18 +134,11 @@
     <AndroidResource Include="Resources\layout\activity_about.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\web_hi_res_512.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_round.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_round.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_round.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_round.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
-    <None Include="Images\functionsgraphic.png" />
-    <None Include="Screenshots\Screenshot_1576431741.png" />
-    <None Include="Screenshots\Screenshot_1576431753.png" />
-    <None Include="Screenshots\Screenshot_1576431757.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_foreground.png" />
@@ -169,12 +156,10 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\stereoskop.png" />
-    <None Include="Images\tvbanner.png" />
-    <None Include="Images\werbegrafik.png" />
+    <AndroidResource Include="Resources\layout\content_main.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\content_main.xml" />
+    <AndroidResource Include="Resources\drawable\sheep.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
